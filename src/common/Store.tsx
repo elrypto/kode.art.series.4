@@ -1,8 +1,11 @@
 import React from "react";
 import {
   Action,
-  AppState
+  AppState,
+  Dispatch
 } from "./Interfaces";
+import { useImmerReducer } from 'use-immer';
+
 
 
 export enum ActionType {
@@ -27,6 +30,36 @@ const initialState: AppState = {
   loomConnectionInfo: null,
   ensAddress: '--'
 };
+
+
+
+
+  
+export function appReducer (draft:any , action:any) {
+  switch (action.type){
+    case 'field': {
+      draft[action.fieldName] = action.payload;
+      return;
+    }
+    case 'set_name': {
+      draft.name =  action.payload;
+      return;
+    } 
+    case 'clear': {
+     draft.name = '';
+     return;
+    } 
+    default: {
+      console.error('default reducer met, likely an error on action.type called');
+      return;
+    }
+  }
+}
+
+
+
+export const StateContext = React.createContext<AppState>(initialState);
+export const DispatchContext = React.createContext<Dispatch| null>(null);
 
 
 export const Store = React.createContext<AppState| any>(initialState);
@@ -72,12 +105,14 @@ function reducer(state: AppState, action: Action| any): AppState {
 }
 
 
-export function StoreProvider(props: any): JSX.Element {
-  const [state, dispatch] = React.useReducer(reducer, initialState);
+export function AppContextProvider(props: any): JSX.Element {
+  const [state, dispatch] = useImmerReducer(appReducer, initialState);
   return (
-    <Store.Provider value={{ state, dispatch }}>
-      {props.children}
-    </Store.Provider>
+    <DispatchContext.Provider value={dispatch}>
+      <StateContext.Provider value={state}>
+        {props.children}
+      </StateContext.Provider>
+    </DispatchContext.Provider>
   );
 }
 

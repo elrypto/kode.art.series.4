@@ -3,19 +3,19 @@ import Header from "./views/Header";
 import Footer from "./views/Footer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { StoreProvider } from "./common/Store";
+import { AppContextProvider } from "./common/Store";
 
 
 export default function App(props: any): JSX.Element {
  
   return (
     <React.Fragment>
-      <StoreProvider>
-        <Header />
-          <ToastContainer />
-            {props.children}
-        <Footer />
-      </StoreProvider>
+       <AppContextProvider>
+            <Header />
+              <ToastContainer />
+                {props.children}
+            <Footer />
+      </AppContextProvider> 
     </React.Fragment>
   );
 }
