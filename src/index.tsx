@@ -13,21 +13,18 @@ import GettingStarted from './views/GettingStarted';
 import NotFound from './views/NotFound';
 
 
-
 const RouterPage = (props: { pageComponent: JSX.Element } & RouteComponentProps) => props.pageComponent;
 
 ReactDOM.render(
       <Router>
           <App path="/">      
             <RouterPage pageComponent={<Main />} path="/" />
-            <RouterPage pageComponent={<Test />} path="/test" />  
-            <RouterPage pageComponent={<GettingStarted />} path="/gettingStarted" />  
+            <RouterPage pageComponent={<Test />} path="test" />  
+            <RouterPage pageComponent={<GettingStarted />} path="gettingStarted" />  
+            <RouterPage pageComponent={<NotFound />} default />
           </App>
       </Router>
  ,
   document.getElementById("root")
 );
 
-/*
-<RouterPage pageComponent={<NotFound />} default />
-*/

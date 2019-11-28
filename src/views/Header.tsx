@@ -1,5 +1,6 @@
 import React from 'react';
 import { useContextState } from '../components/hooks/useAppContext';
+import { Link } from '@reach/router';
 
 
 export default function Header() {
@@ -17,11 +18,15 @@ export default function Header() {
               <ul className="navbar-nav ml-auto">
       
                <li className="nav-item">
-                  <a className="nav-link" href="/">home</a>
+                    <Link to="/">home</Link>
                 </li>
-              
+
                 <li className="nav-item">
-                  <a className="nav-link active" href="/test">test</a>
+                  <Link to="/gettingStarted">get started</Link>
+                </li>
+
+                <li className="nav-item">
+                  <Link to="/test">test</Link>
                 </li>
 
               </ul>

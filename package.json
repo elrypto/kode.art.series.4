@@ -1,5 +1,5 @@
 {
-  "name": "kode.art.series.3",
+  "name": "kode.art.series.4",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -14,8 +14,7 @@
     "react-dom": "^16.8.6",
     "react-scripts": "2.1.8",
     "react-toastify": "^5.1.0",
-    "typeface-roboto": "^0.0.54",
-    "typescript": "3.4.3"
+    "typeface-roboto": "^0.0.54"
   },
   "scripts": {
     "start:dev": "universal-login start:dev",
@@ -49,6 +48,7 @@
     "eslint-plugin-prettier": "^3.1.0",
     "husky": "^2.4.0",
     "prettier": "^1.18.0",
-    "puppeteer": "^1.17.0"
+    "puppeteer": "^1.17.0",
+    "typescript": "3.4.3"
   }
 }

@@ -30,14 +30,12 @@ const initialState: AppState = {
   loomObj: null,
   loomConnectionInfo: null,
   ensAddress: '--',
-  testVal: '-*-*-'
+  testVal: ':('
 };
 
 
 export const StateContext = React.createContext<AppState>(initialState);
 export const DispatchContext = React.createContext<Dispatch>({} as Dispatch);
-
-//export const Store = React.createContext<AppState| any>(initialState);
 
 
 function appReducer(draft: any, action: Action| any) {
