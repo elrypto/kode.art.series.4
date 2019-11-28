@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
 import { Router, RouteComponentProps } from "@reach/router";
 import './bootstrap.min.css';
 import './fixed.css';
 import './style.css';
-import "antd/dist/antd.css";
+import 'antd/dist/antd.css';
 
+import App from "./App";
 import Main from "./views/Main";
 import Test from './views/Test';
 import GettingStarted from './views/GettingStarted';

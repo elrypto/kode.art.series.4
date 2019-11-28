@@ -2,8 +2,9 @@ import React from 'react'
 import MMLogo from './../img/metamask.png';
 import PortisLogo from './../img/portislogo.svg';
 import PortisConnect from '../components/PortisConnect';
-import useAppContext, { useContextState } from '../components/hooks/useAppContext';
+import useAppContext from '../components/hooks/useAppContext';
 import { Button } from 'antd';
+import { ActionType } from '../common/Store';
 
 
 
@@ -15,7 +16,7 @@ https://metamask.io/
 */
 
 export default function GettingStarted() {
-  const state  = useContextState()
+  const { state, dispatch } = useAppContext();
 
   console.log('state:', state);
   //hook here, wait for provider portis
@@ -36,6 +37,11 @@ export default function GettingStarted() {
                   type="dashed"
                   onClick={() => {
                     console.log("setting test val");
+                    dispatch({
+                      type: ActionType.SET_FIELD,
+                      payload: 'panini',
+                      fieldName: 'testVal'
+                    })
                   }}
                 >
                   set  

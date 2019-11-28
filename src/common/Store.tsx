@@ -29,7 +29,8 @@ const initialState: AppState = {
   ethersProvider: {} as Web3Provider,
   loomObj: null,
   loomConnectionInfo: null,
-  ensAddress: '--'
+  ensAddress: '--',
+  testVal: '-*-*-'
 };
 
 

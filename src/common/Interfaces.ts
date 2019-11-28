@@ -18,12 +18,14 @@ export interface AppState {
   loomObj: LoomObject| null;
   loomConnectionInfo: LoomConnectionInfo| null;
   ensAddress: string;
+  testVal: string;
 }
 
 
 export interface Action {
   type: string; //enum from Store.ActionType
   payload: any;
+  fieldName?: string;
 }
 
 
