@@ -18,15 +18,15 @@ export default function Header() {
               <ul className="navbar-nav ml-auto">
       
                <li className="nav-item">
-                    <Link to="/">home</Link>
+                    <Link className="nav-link" to="/">home</Link>
                 </li>
 
                 <li className="nav-item">
-                  <Link to="/gettingStarted">get started</Link>
+                  <Link className="nav-link" to="/gettingStarted">get started</Link>
                 </li>
 
                 <li className="nav-item">
-                  <Link to="/test">test</Link>
+                  <Link className="nav-link" to="/test">test</Link>
                 </li>
 
               </ul>
