@@ -1,8 +1,9 @@
 import React from 'react';
-import { Store } from '../common/Store';
+import { useContextState } from '../components/hooks/useAppContext';
+
 
 export default function Header() {
-  const { state } = React.useContext(Store);
+  const state  = useContextState();
 
   return (
     <React.Fragment>

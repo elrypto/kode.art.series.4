@@ -1,12 +1,12 @@
 import React from 'react';
-import { Store, ActionType } from '../../common/Store';
 import { ethers } from 'ethers';
 import { dispatchEthRelated, dispatchProviderAndAddr } from '../../common/Actions';
+import useAppContext from './useAppContext';
 
 
 
 export default function useLoadInjectedEthersState() {
-  const { state, dispatch } = React.useContext(Store);
+  const { state, dispatch } = useAppContext();
 
   /*React.useEffect(() => {
     if (state.injectedProvider){

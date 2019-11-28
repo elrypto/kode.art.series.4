@@ -1,12 +1,12 @@
 import React from 'react';
 import { Button } from 'antd';
-import { Store } from '../../common/Store';
 import { notify, ethBalance } from '../../common/Actions';
+import { useContextState } from '../hooks/useAppContext';
 
 
 
 export default function EnsTest() {
-  const { state } = React.useContext(Store);
+ const state = useContextState();
 
   return (
     <React.Fragment>

@@ -5,10 +5,11 @@ import {
   Dispatch
 } from "./Interfaces";
 import { useImmerReducer } from 'use-immer';
-
+import { Web3Provider } from "ethers/providers";
 
 
 export enum ActionType {
+  SET_FIELD = "kodeart/SET_FIELD",
   SET_SELECTED_ETH_ADDR = "kodeart/SET_SELECTED_ETH_ADDR",
   SET_ETH_WEB3 = "kodeart/SET_ETH_WEB3",
   SET_ETH_BALANCE = "kodeart/SET_ETH_BALANCE",
@@ -25,82 +26,60 @@ const initialState: AppState = {
   ethWeb3: null,
   ethBalance: '--',
   injectedProvider: null,
-  ethersProvider: null,
+  ethersProvider: {} as Web3Provider,
   loomObj: null,
   loomConnectionInfo: null,
   ensAddress: '--'
 };
 
 
+export const StateContext = React.createContext<AppState>(initialState);
+export const DispatchContext = React.createContext<Dispatch>({} as Dispatch);
+
+//export const Store = React.createContext<AppState| any>(initialState);
 
 
-  
-export function appReducer (draft:any , action:any) {
-  switch (action.type){
-    case 'field': {
+function appReducer(draft: any, action: Action| any) {
+  switch (action.type) {
+    case ActionType.SET_FIELD:{
       draft[action.fieldName] = action.payload;
       return;
     }
-    case 'set_name': {
-      draft.name =  action.payload;
-      return;
-    } 
-    case 'clear': {
-     draft.name = '';
-     return;
-    } 
-    default: {
-      console.error('default reducer met, likely an error on action.type called');
+    case ActionType.SET_SELECTED_ETH_ADDR: {
+      draft.selectedEthAddr = action.payload;
       return;
     }
-  }
-}
-
-
-
-export const StateContext = React.createContext<AppState>(initialState);
-export const DispatchContext = React.createContext<Dispatch| null>(null);
-
-
-export const Store = React.createContext<AppState| any>(initialState);
-
-function reducer(state: AppState, action: Action| any): AppState {
-  
-  switch (action.type) {
-    case ActionType.SET_SELECTED_ETH_ADDR:
-      return {
-        ...state, selectedEthAddr: action.payload
-      }
-    case ActionType.SET_ETH_WEB3:
-      return {
-        ...state, ethWeb3: action.payload
-      }
-    case ActionType.SET_ETH_BALANCE:
-      return {
-        ...state, ethBalance: action.payload
-      }
-    case ActionType.SET_INJECTED_PROVIDER:
-        return {
-          ...state, injectedProvider: action.payload
-      }
-    case ActionType.SET_ETHERS_PROVIDER:
-        return {
-          ...state, ethersProvider: action.payload
-      }
-    case ActionType.SET_LOOM_OBJ:
-        return {
-          ...state, loomObj: action.payload
-      }
-    case ActionType.SET_LOOM_CONNECTION_INFO:
-      return {
-        ...state, loomConnectionInfo: action.payload
-      }
-    case ActionType.SET_ENS_ADDRESS:
-      return {
-        ...state, ensAddress: action.payload
-      }
+    case ActionType.SET_ETH_WEB3: {
+      draft.ethWeb3 = action.payload;
+      return;
+    }
+    case ActionType.SET_ETH_BALANCE: {
+      draft.ethBalance = action.payload
+      return;
+    }
+    case ActionType.SET_INJECTED_PROVIDER: {
+      draft.injectedProvider = action.payload;
+      return;
+    }
+    case ActionType.SET_ETHERS_PROVIDER: {
+      draft.ethersProvider = action.payload;
+      return;  
+    }
+    case ActionType.SET_LOOM_OBJ: {
+      draft.loomObj = action.payload;
+      return;
+    }
+    case ActionType.SET_LOOM_CONNECTION_INFO: { 
+      draft.loomConnectionInfo = action.payload;
+      return;
+    }
+    case ActionType.SET_ENS_ADDRESS: {
+      draft.ensAddress = action.payload;
+      return;
+    }
     default:
-      return state;
+      console.error('default reducer met, likely an error on action.type called');
+      return;
   }
 }
 

@@ -14,7 +14,7 @@ export interface AppState {
   ethWeb3: Web3| null;
   ethBalance: string;
   injectedProvider: any;
-  ethersProvider: Web3Provider| null;
+  ethersProvider: Web3Provider;
   loomObj: LoomObject| null;
   loomConnectionInfo: LoomConnectionInfo| null;
   ensAddress: string;

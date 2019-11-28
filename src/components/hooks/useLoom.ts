@@ -2,7 +2,7 @@ import React from "react";
 import { CryptoUtils, Client, LoomProvider, LocalAddress } from "loom-js";
 import { LoomConnectionInfo, LoomObject } from "../../common/Interfaces";
 import { ethers } from 'ethers';
-import { Store } from "../../common/Store";
+import useAppContext, { useContextState } from "./useAppContext";
 
 
 /* based on loom truffle example, contract.js file, adapted to react hooks
@@ -19,7 +19,7 @@ export const DEFAULT_LOCAL_DEV = {
 
 
 export default function useLoom() {
-  const { state } = React.useContext(Store);
+  const state  = useContextState();
   let connectionInfo: LoomConnectionInfo = {} as LoomConnectionInfo;
 
   if (!state.loomConnectionInfo) {

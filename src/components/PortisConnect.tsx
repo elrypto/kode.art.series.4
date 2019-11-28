@@ -1,13 +1,14 @@
 import React from 'react'
 import Portis from '@portis/web3';
 import { Button } from 'antd';
-import { Store, ActionType } from '../common/Store';
+import { ActionType } from '../common/Store';
 import useLoadInjectedEthersState from './hooks/useLoadInjectedEthersState';
+import { useDispatch } from './hooks/useAppContext';
 
 
 
 export default function PortisConnect() {
-  const { dispatch } = React.useContext(Store);
+  const dispatch  = useDispatch();
   useLoadInjectedEthersState();
 
   return (

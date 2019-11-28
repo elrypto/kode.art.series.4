@@ -2,8 +2,9 @@ import React from "react";
 import Header from "./views/Header";
 import Footer from "./views/Footer";
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { AppContextProvider } from "./common/Store";
+import "react-toastify/dist/ReactToastify.css";
+
 
 
 export default function App(props: any): JSX.Element {

@@ -2,15 +2,23 @@ import React from 'react'
 import MMLogo from './../img/metamask.png';
 import PortisLogo from './../img/portislogo.svg';
 import PortisConnect from '../components/PortisConnect';
-import { Store } from '../common/Store';
+import useAppContext, { useContextState } from '../components/hooks/useAppContext';
+import { Button } from 'antd';
 
+
+
+/*
+https://www.portis.io/
+
+https://metamask.io/
+
+*/
 
 export default function GettingStarted() {
-  const { state } = React.useContext(Store);
+  const state  = useContextState()
 
   console.log('state:', state);
   //hook here, wait for provider portis
-
   //hook defensive check for metamask/portis providers
 
   return (
@@ -20,6 +28,21 @@ export default function GettingStarted() {
           <div className="col-12">
 
             <div>We did not detect a metamask account or a portis connection</div>
+
+            <div className="row"> 
+              <div className="col-md-6">set state testval, for state transitions</div>
+              <div className="col-md-6">
+                <Button
+                  type="dashed"
+                  onClick={() => {
+                    console.log("setting test val");
+                  }}
+                >
+                  set  
+                </Button>  
+              </div>  
+            </div>
+
 
             <div id="gettingStartedText" className="seeMe">
               <div id="gettingStartedTitle">
@@ -68,10 +91,3 @@ export default function GettingStarted() {
   );
 }
 
-
-/*
-https://www.portis.io/
-
-https://metamask.io/
-
-*/

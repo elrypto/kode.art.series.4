@@ -1,11 +1,12 @@
 import React from 'react';
-import { Store, ActionType } from '../../common/Store';
+import { ActionType } from '../../common/Store';
 import { LoomObject } from '../../common/Interfaces';
 import useLoomWithConfig  from './useLoadLoomConfig';
 import useLoomEthers from './useLoom';
+import useAppContext from './useAppContext';
 
 export default function useLoadLoomObj(){
-  const { state, dispatch } = React.useContext(Store);
+  const { state, dispatch } = useAppContext();
   const loomObj = useLoomEthers();
 
   React.useEffect(() => {

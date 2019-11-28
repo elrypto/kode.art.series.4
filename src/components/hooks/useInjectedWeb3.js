@@ -1,11 +1,12 @@
 import React from 'react';
-import { Store, ActionType } from '../../common/Store';
+import { ActionType } from '../../common/Store';
 import { notifyError } from '../../common/Actions';
+import useAppContext from './useAppContext';
 
 
 //will this run over the portis provider?
 export default function useInjectedWeb3() {
-    const { state, dispatch } = React.useContext(Store);
+    const { state, dispatch } = useAppContext();
     let provider;
 
     // if metamask && no other provider currently, then go to connect page

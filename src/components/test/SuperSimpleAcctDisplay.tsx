@@ -1,9 +1,9 @@
 import React from 'react'
-import { Store } from '../../common/Store';
+import { useContextState } from '../hooks/useAppContext';
 
 
 export default function SuperSimpleAcctDisplay() {
-  const { state } = React.useContext(Store);
+  const state  = useContextState();
 
   return (
     <React.Fragment>

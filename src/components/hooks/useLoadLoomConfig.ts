@@ -9,11 +9,12 @@ import {
   LOOM_EXTDEV_READ_URL,
   LOOM_EXTDEV_WRITE_URL
 } from "../../config";
-import { ActionType, Store } from "../../common/Store";
+import { ActionType } from "../../common/Store";
+import { useDispatch } from './useAppContext';
 
 
 export default function useLoadLoomConfig() {
-  const { dispatch } = React.useContext(Store);
+  const dispatch  = useDispatch();
   let connectionInfo: LoomConnectionInfo|any = {};
 
   React.useEffect(()=> {

@@ -1,10 +1,11 @@
 import React from "react";
 import Header from "./Header";
-import { Store, ActionType } from "../common/Store";
+import { ActionType } from "../common/Store";
+import useAppContext from "../components/hooks/useAppContext";
 
 
 export default function Main() {
-  const { state, dispatch } = React.useContext(Store);
+  const { state, dispatch } = useAppContext();
  
   console.log("state", state);
 
