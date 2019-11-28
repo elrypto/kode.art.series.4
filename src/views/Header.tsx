@@ -1,7 +1,7 @@
 import React from 'react';
 import { useContextState } from '../components/hooks/useAppContext';
 import { Link } from '@reach/router';
-
+import ActiveNavLink from './../components/ui/ActiveNavLink';
 
 export default function Header() {
   const state  = useContextState();
@@ -9,7 +9,7 @@ export default function Header() {
   return (
     <React.Fragment>
        <nav className="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-          <a className="navbar-brand" href="/"><p>(k)ode.art</p></a>
+          <Link className="navbar-brand" to="/">(k)ode.art</Link>
           <button className="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarResponsive">
               <span className="navbar-toggler-icon"></span>
@@ -18,15 +18,15 @@ export default function Header() {
               <ul className="navbar-nav ml-auto">
       
                <li className="nav-item">
-                    <Link className="nav-link" to="/">home</Link>
+                <ActiveNavLink className="nav-link" to="/">home</ActiveNavLink>
                 </li>
 
                 <li className="nav-item">
-                  <Link className="nav-link" to="/gettingStarted">get started</Link>
+                  <ActiveNavLink className="nav-link" to="/gettingStarted">get started</ActiveNavLink>
                 </li>
 
                 <li className="nav-item">
-                  <Link className="nav-link" to="/test">test</Link>
+                  <ActiveNavLink className="nav-link" to="/test">test</ActiveNavLink>
                 </li>
 
               </ul>
