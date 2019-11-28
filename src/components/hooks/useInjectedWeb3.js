@@ -2,6 +2,7 @@ import React from 'react';
 import { ActionType } from '../../common/Store';
 import { notifyError } from '../../common/Actions';
 import useAppContext from './useAppContext';
+import { navigate } from '@reach/router';
 
 
 //will this run over the portis provider?
@@ -13,7 +14,7 @@ export default function useInjectedWeb3() {
      if (typeof window.ethereum === 'undefined' && !state.injectedProvider) { 
     //if (typeof window.ethereum === 'undefined') { 
         console.error('no metamask');
-        //window.location.assign('/gettingStarted');        
+        navigate('gettingStarted');        
     }
 
 

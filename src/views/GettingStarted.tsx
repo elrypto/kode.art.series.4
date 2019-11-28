@@ -13,6 +13,8 @@ https://www.portis.io/
 
 https://metamask.io/
 
+navigate(`/invoices/${newInvoice.id}`)
+
 */
 
 export default function GettingStarted() {
@@ -22,6 +24,15 @@ export default function GettingStarted() {
   //hook here, wait for provider portis
   //hook defensive check for metamask/portis providers
 
+
+  React.useEffect(() => {
+    if (state.injectedProvider){
+      console.log('injected provider changed, and now have provider, routing to main');
+      console.log('have provider:', state.injectedProvider);
+    }
+    
+  }, [state.injectedProvider])
+
   return (
     <div className="offset">
       <div className="jumbotron">
@@ -29,26 +40,6 @@ export default function GettingStarted() {
           <div className="col-12">
 
             <div>We did not detect a metamask account or a portis connection</div>
-
-            <div className="row"> 
-              <div className="col-md-6">set state testval, for state transitions</div>
-              <div className="col-md-6">
-                <Button
-                  type="dashed"
-                  onClick={() => {
-                    console.log("setting test val");
-                    dispatch({
-                      type: ActionType.SET_FIELD,
-                      payload: 'panini',
-                      fieldName: 'testVal'
-                    })
-                  }}
-                >
-                  set  
-                </Button>  
-              </div>  
-            </div>
-
 
             <div id="gettingStartedText" className="seeMe">
               <div id="gettingStartedTitle">
