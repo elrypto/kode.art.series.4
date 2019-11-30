@@ -1,5 +1,6 @@
 import Web3 from "web3";
 import { Web3Provider } from "ethers/providers";
+import { LoomProvider } from "loom-js";
 
 /**
 |--------------------------------------------------
@@ -44,6 +45,7 @@ export interface LoomObject {
   web3?: any;
   currentNetwork: string;
   ethersProvider: any;
+  loomProvider?: LoomProvider;
 
   connectionInfo: LoomConnectionInfo|any;
 }
