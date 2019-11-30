@@ -13,8 +13,6 @@ https://www.portis.io/
 
 https://metamask.io/
 
-navigate(`/invoices/${newInvoice.id}`)
-
 */
 
 export default function GettingStarted() {

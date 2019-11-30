@@ -18,7 +18,6 @@ export interface AppState {
   loomObj: LoomObject| null;
   loomConnectionInfo: LoomConnectionInfo| null;
   ensAddress: string;
-  testVal: string;
 }
 
 

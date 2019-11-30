@@ -10,7 +10,6 @@ export default function EnsTest() {
 
   return (
     <React.Fragment>
-      <div>ENS</div>
       <div className="row seeMe"> 
       <Button
         type="dashed"

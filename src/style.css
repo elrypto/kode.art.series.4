@@ -19,6 +19,14 @@ body{
   padding: 30px;
 }
 
+.simpleTitleBox {
+  margin-top: 2em;
+  margin-bottom: 1em;
+  font-size: 105%;
+  font-weight: 500;
+  color: #4b6f88;
+  border-bottom: 1px solid #dddcdc;
+}
 
 .logo-text {
   font-size: 1.9rem;
