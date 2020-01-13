@@ -23,7 +23,8 @@
     "test": "react-scripts test",
     "testw": "jest --watch",
     "eject": "react-scripts eject",
-    "copy_contracts": "node ./scripts/contract_copy"
+    "copy_contracts": "node ./scripts/contract_copy",
+    "lint": "yarn eslint"
   },
   "eslintConfig": {
     "extends": "react-app"

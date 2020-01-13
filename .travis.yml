@@ -9,7 +9,8 @@ install:
   - npm ci
 
 script:
-  - npm test
+  - yarn lint
+  - yarn test
 
 notifications:
   email: false
