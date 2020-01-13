@@ -32,10 +32,8 @@ const initialState: AppState = {
   ensAddress: '--'
 };
 
-
 export const StateContext = React.createContext<AppState>(initialState);
 export const DispatchContext = React.createContext<Dispatch>({} as Dispatch);
-
 
 function appReducer(draft: any, action: Action| any) {
   switch (action.type) {

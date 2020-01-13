@@ -90,22 +90,25 @@ export const decorateLoomWithMiddleware = async(loom: LoomObject, dispatch: Disp
   loom.client.txMiddleware = createDefaultTxMiddleware(loom.client,loom.privateKey);
 
   const addressMapper = await Contracts.AddressMapper.createAsync(loom.client, from);
+  console.log('address mapper:', addressMapper);
+  let has = await addressMapper.hasMappingAsync(to);
+  console.log('has mapping?', has);
 
-  if (await addressMapper.hasMappingAsync(to)) {
-    console.log('Mapping already exists.')
-  } else {
-    console.log('Adding a new mapping.')
-    const ethersSigner = new EthersSigner(signer)
-    await addressMapper.addIdentityMappingAsync(from, to, ethersSigner)
-  }
-
+  //if (has) {
+  //  console.log('Mapping already exists.');
+  //} else {
+    /////console.log('Adding a new mapping.');
+    /////const ethersSigner = new EthersSigner(signer);
+    ////await addressMapper.addIdentityMappingAsync(from, to, ethersSigner)
+  //}
+/*
   loom.loomProvider = new LoomProvider(loom.client, loom.privateKey);
   loom.loomProvider.callerChainId = 'eth';
   loom.loomProvider.setMiddlewaresForAddress(to.local.toString(),
     [new NonceTxMiddleware(to, loom.client),
     new SignedEthTxMiddleware(signer)]
   );
-
+*/
   dispatch({
     type: ActionType.SET_LOOM_OBJ,
     payload: loom

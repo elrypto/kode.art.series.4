@@ -45,7 +45,7 @@ export default function LoomTest () {
         }
       }}
      >
-       Decorate loom with middleware
+       Load SimpleStore Contract
      </Button>
    </React.Fragment>
   )

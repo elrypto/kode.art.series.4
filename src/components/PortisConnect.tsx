@@ -17,6 +17,7 @@ export default function PortisConnect() {
         type="dashed"
         onClick={ async() => {
           console.log('connecting to portis... ');
+          console.log('trying a staged change');
           let KEY_FROM_CONFIG = '';
           if (process.env.REACT_APP_PORTIS_KEY){
             KEY_FROM_CONFIG = process.env.REACT_APP_PORTIS_KEY;
